@@ -1,39 +1,43 @@
-## Consertar Mensagem de Commit
-git commit -m "mensagem eLada"
-git commit -m "mensagem correta" --amend
+COMO USAR O GIT e o GITHUB
 
-## Limpando Excesso de Commits do Histórico
-git commit -m "fixing"
-git commit -m "fixing"
-git commit -m "fixing"
-------------------------------------------------------------------------------
-Git Hard Reset: Reinicialização Total. Deleta Tudo. Undo sem recuperação.
-Git Soft Reset. Desfaz a lista ligada mantendo o ponteiro Head e mantendo as modificações dos commits.
-------------------------------------------------------------------------------
-## Soft Reset
-## Ex: limpar os últimos 3 commits do histórico.
-***********************
-git reset --soft HEAD~3
-***********************
-git log
-git status
-## Novo commit com uma nova mensagem:
-git commit -m "fixing files arq[1,2,3]"
+http://www.devmedia.com.br/github-e-git-colaboracao-e-organizacao/24150
 
-## Se errar a nova mensagem pode fazer um novo commit com: --amend
-git commit -m "mensagem nova" --amend
-------------------------------------------------------------------------------
+1º) Configurar o Bash:
+git config --global "user.name.<argumento>"
+git config --global "user.email.<argumento>"
 
-## Forma Mais Correta de Limpar os Commits do Histórico
-git rebase -i HEAD~3
+2º) Como Baixar o Projeto:
+git clone <enderecoRepositorioRemoto> //faz o download
 
-## -i de interativo. Acessa o Editor Vim.
-## No Vim edita:
-pick   75fc3fd fixing
-squash bddb3ba fixing
-squash 9013511 fixing
+3º) Como Subir o Projeto para o Repositório Remoto:
+git add <nomeDoArquivo> //adiciona arquivo(s) local(is).
+git commit -m "<comentario>"
+git push origin master //faz o upload
 
-## No Vim: click 'ESC'
-## No Vim (digite): ':wq!'
-## Abre novamente o Vim. Precisa editar a mensagem do commit.
-## Após editada vai precisar de um outro commit. Pois você fez isso localmente. E falta essa correção no repositório!
+
+PRIMEIRO USO DO GIT:
+git init // cria um "Repositório Local" oculto
+git status //verifica as pendencias
+git add // sai do "Working Directory" e leva para a "Stage Area"
+git commit -m "<comentario"> // Faz o envio para o repositório local
+git comit -a -m <"Linhas Adicionadas">
+git branch -d nome-da-branch // Remove/Deleta um branch local:
+
+//Se der esse Erro:
+error: The branch 'teste' is not fully merged.
+
+//significa que você possui algum commit recente nesta branch, 
+//e excluí-la significaria perder este commit.
+
+##Caso queira salvar algum commit, faça um merge com outra branch. 
+##Caso contrário, faça um force delete com o parâmetro -D maiúsculo.
+git branch -D nome-da-branch
+
+##Nos comandos acima, 
+## -d é um alias para --delete 
+## e -D é um alias para --delete --force
+## -b uma branch será criada. Ex:
+git checkout -b desenvolvimento
+
+Como Excluir Branch Local e Remoto?
+https://gabrielzuqueto.eti.br/git-como-excluir-branch-local-e-remoto

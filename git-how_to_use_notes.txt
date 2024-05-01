@@ -1,0 +1,63 @@
+COMO USAR O GIT e o GITHUB
+
+http://www.devmedia.com.br/github-e-git-colaboracao-e-organizacao/24150
+
+
+1º) Configurar o Bash:
+
+git config --global "user.name.<argumento>"
+
+ou 
+
+git config --global "user.email.<argumento>"
+
+Como Baixar o Projeto:
+
+git clone <enderecoDoRepositorio> //faz o download
+
+Como Uppar o Projeto:
+
+git add <nomeDoArquivo> //adiciona a um arquivo local que está oculto
+git commit -m <"comentario"> //prepara para uppar
+git push origin master //faz o upload do arquivo
+
+
+No PRIMEIRO USO DO GIT:
+
+git init // cria um "Repositório Local" oculto
+
+git status //verifica as pendencias
+
+git add // sai do "Working Directory" e leva para a "Stage Area"
+
+git commit -m "<comentario"> // faz o envio para o repositório local
+
+
+
+git comit -a -m <"Linhas Adicionadas">
+
+
+/rbtechinfo
+
+//Removendo uma branch local:
+git branch -d nome-da-branch
+
+//Se der esse Erro:
+error: The branch 'teste' is not fully merged.
+
+
+//significa que você possui algum commit recente nesta branch, 
+//e excluí-la significaria perder este commit.
+
+##Caso queira salvar algum commit, faça um merge com outra branch. 
+##Caso contrário, faça um force delete com o parâmetro -D maiúsculo.
+git branch -D nome-da-branch
+
+##Nos comandos acima, 
+## -d é um alias para --delete 
+## e -D é um alias para --delete --force
+## -b uma branch será criada. Ex:
+git checkout -b desenvolvimento
+
+Como Excluir Branch Local e Remoto?
+https://gabrielzuqueto.eti.br/git-como-excluir-branch-local-e-remoto
