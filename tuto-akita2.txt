@@ -1,0 +1,39 @@
+## Consertar Mensagem de Commit
+git commit -m "mensagem eLada"
+git commit -m "mensagem correta" --amend
+
+## Limpando Excesso de Commits do Histórico
+git commit -m "fixing"
+git commit -m "fixing"
+git commit -m "fixing"
+------------------------------------------------------------------------------
+Git Hard Reset: Reinicialização Total. Deleta Tudo. Undo sem recuperação.
+Git Soft Reset. Desfaz a lista ligada mantendo o ponteiro Head e mantendo as modificações dos commits.
+------------------------------------------------------------------------------
+## Soft Reset
+## Ex: limpar os últimos 3 commits do histórico.
+***********************
+git reset --soft HEAD~3
+***********************
+git log
+git status
+## Novo commit com uma nova mensagem:
+git commit -m "fixing files arq[1,2,3]"
+
+## Se errar a nova mensagem pode fazer um novo commit com: --amend
+git commit -m "mensagem nova" --amend
+------------------------------------------------------------------------------
+
+## Forma Mais Correta de Limpar os Commits do Histórico
+git rebase -i HEAD~3
+
+## -i de interativo. Acessa o Editor Vim.
+## No Vim edita:
+pick   75fc3fd fixing
+squash bddb3ba fixing
+squash 9013511 fixing
+
+## No Vim: click 'ESC'
+## No Vim (digite): ':wq!'
+## Abre novamente o Vim. Precisa editar a mensagem do commit.
+## Após editada vai precisar de um outro commit. Pois você fez isso localmente. E falta essa correção no repositório!
